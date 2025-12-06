@@ -1448,4 +1448,620 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube चैनल - Ethical Hacking Videos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --youtube-red: #FF0000;
+            --youtube-dark: #0F0F0F;
+            --youtube-light: #272727;
+            --youtube-text: #FFFFFF;
+            --youtube-secondary: #AAAAAA;
+        }
+
+        body {
+            background-color: var(--youtube-dark);
+            color: var(--youtube-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .youtube-header {
+            background-color: rgba(15, 15, 15, 0.95);
+            padding: 25px 0;
+            border-bottom: 3px solid var(--youtube-red);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            color: var(--youtube-red);
+            font-size: 2.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--youtube-text);
+        }
+
+        .tagline {
+            color: var(--youtube-secondary);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .subscribe-btn {
+            background-color: var(--youtube-red);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 0.9)),
+                        url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero-title span {
+            color: var(--youtube-red);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--youtube-secondary);
+        }
+
+        .channel-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--youtube-red);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--youtube-secondary);
+        }
+
+        .visit-channel-btn {
+            background-color: var(--youtube-red);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .visit-channel-btn:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Videos Section */
+        .videos-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--youtube-red);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background-color: var(--youtube-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-thumbnail {
+            height: 180px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 0, 0, 0.8);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--youtube-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .video-description {
+            color: var(--youtube-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Categories */
+        .categories-section {
+            padding: 60px 0;
+            background-color: rgba(39, 39, 39, 0.3);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: var(--youtube-light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .category-card:hover {
+            border-color: var(--youtube-red);
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--youtube-red);
+            margin-bottom: 15px;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        /* Footer */
+        .youtube-footer {
+            background-color: rgba(15, 15, 15, 0.95);
+            padding: 50px 0 30px;
+            border-top: 3px solid var(--youtube-red);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--youtube-red);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--youtube-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--youtube-red);
+        }
+
+        .copyright {
+            color: var(--youtube-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: var(--youtube-secondary);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--youtube-red);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .channel-stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="youtube-header">
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div>
+                    <div class="logo-text">ETHICAL HACKER YOUTUBE</div>
+                    <div class="tagline">साइबर सुरक्षा और हैकिंग ट्यूटोरियल</div>
+                </div>
+            </div>
+            <a href="https://yt.openinapp.co/raehk" target="_blank" class="subscribe-btn">
+                <i class="fab fa-youtube"></i> सब्सक्राइब करें
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Ethical Hacking <span>YouTube</span> चैनल</h1>
+            <p class="hero-description">साइबर सुरक्षा, एथिकल हैकिंग, नेटवर्किंग और टेक्नोलॉजी के नवीनतम ट्यूटोरियल और जानकारी के लिए हमारे चैनल से जुड़ें। प्रैक्टिकल वीडियो और हैंड्स-ऑन डेमो के साथ सीखें।</p>
+            
+            <div class="channel-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">सब्सक्राइबर्स</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">वीडियो</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500K+</span>
+                    <span class="stat-label">व्यूज</span>
+                </div>
+            </div>
+            
+            <a href="https://yt.openinapp.co/raehk" target="_blank" class="visit-channel-btn">
+                <i class="fab fa-youtube"></i> चैनल पर जाएं
+            </a>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos-section">
+        <div class="container">
+            <h2 class="section-title">लोकप्रिय वीडियो</h2>
+            <div class="videos-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ethical Hacking Basics">
+                        <div class="play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">एथिकल हैकिंग की शुरुआत - बिल्कुल शुरू से</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-eye"></i> 50K व्यूज</span>
+                            <span><i class="far fa-clock"></i> 15:30</span>
+                        </div>
+                        <p class="video-description">एथिकल हैकिंग सीखने के लिए यह पहला वीडियो देखें। बेसिक कॉन्सेप्ट और टूल्स की जानकारी।</p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kali Linux Tutorial">
+                        <div class="play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Kali Linux - पूरा गाइड हिंदी में</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-eye"></i> 35K व्यूज</span>
+                            <span><i class="far fa-clock"></i> 22:45</span>
+                        </div>
+                        <p class="video-description">Kali Linux की पूरी जानकारी, इंस्टालेशन से लेकर एडवांस टूल्स तक।</p>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Password Security">
+                        <div class="play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">पासवर्ड सुरक्षा - कैसे बचाएं हैकर्स से</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-eye"></i> 45K व्यूज</span>
+                            <span><i class="far fa-clock"></i> 18:20</span>
+                        </div>
+                        <p class="video-description">मजबूत पासवर्ड कैसे बनाएं और पासवर्ड हैकिंग से कैसे बचें।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">वीडियो श्रेणियाँ</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="category-title">एथिकल हैकिंग</h3>
+                    <p>बेसिक से एडवांस हैकिंग तकनीकें</p>
+                </div>
                 
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="category-title">साइबर सुरक्षा</h3>
+                    <p>डेटा और नेटवर्क सुरक्षा के तरीके</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="category-title">नेटवर्किंग</h3>
+                    <p>नेटवर्क सिक्योरिटी और एनालिसिस</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="category-title">प्रोग्रामिंग</h3>
+                    <p>सिक्योर कोडिंग और स्क्रिप्टिंग</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="youtube-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">ETHICAL HACKER YOUTUBE</div>
+            
+            <div class="footer-links">
+                <a href="#">होम</a>
+                <a href="#">वीडियो</a>
+                <a href="#">श्रेणियाँ</a>
+                <a href="#">ब्लॉग</a>
+                <a href="#">संपर्क</a>
+            </div>
+            
+            <a href="https://yt.openinapp.co/raehk" target="_blank" class="subscribe-btn">
+                <i class="fab fa-youtube"></i> चैनल सब्सक्राइब करें
+            </a>
+            
+            <div class="social-icons">
+                <a href="https://insta.openinapp.co/u9aud" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" target="_blank" title="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Ethical Hacker YouTube Channel. सभी अधिकार सुरक्षित।<br>
+                यूट्यूब लिंक: <a href="https://yt.openinapp.co/raehk" target="_blank" style="color: var(--youtube-red);">https://yt.openinapp.co/raehk</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for video cards
+        const videoCards = document.querySelectorAll('.video-card, .category-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if(entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        videoCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+        
+        // Subscribe button animation
+        const subscribeBtn = document.querySelector('.subscribe-btn');
+        subscribeBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        subscribeBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+                    </html>                
