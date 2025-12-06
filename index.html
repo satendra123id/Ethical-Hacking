@@ -653,4 +653,799 @@
                 <li><a href="#"><i class="fas fa-download"></i> हैकिंग टूल्स</a></li>
                 <li><a href="#"><i class="fas fa-video"></i> ट्यूटोरियल वीडियो</a></li>
                 <li><a href="#"><i class="fas fa-file-certificate"></i> सर्टिफिकेशन कोर्स</a></li>
+        <!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram - Ethical Hacking Tips</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --instagram-gradient: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            --instagram-dark: #121212;
+            --instagram-card: #262626;
+            --instagram-light: #363636;
+            --instagram-text: #FFFFFF;
+            --instagram-secondary: #A8A8A8;
+        }
+
+        body {
+            background-color: var(--instagram-dark);
+            color: var(--instagram-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .instagram-header {
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--instagram-light);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            background: var(--instagram-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--instagram-text);
+        }
+
+        .tagline {
+            color: var(--instagram-secondary);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .follow-btn {
+            background: var(--instagram-gradient);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .follow-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
+        }
+
+        /* Profile Section */
+        .profile-section {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--instagram-light);
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid transparent;
+            background: var(--instagram-gradient);
+            padding: 4px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
+            background: var(--instagram-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--instagram-secondary);
+        }
+
+        .profile-bio h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--instagram-text);
+        }
+
+        .profile-bio p {
+            color: var(--instagram-secondary);
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .profile-link {
+            color: var(--instagram-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Highlights */
+        .highlights-section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--instagram-light);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--instagram-text);
+        }
+
+        .highlights-container {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .highlight-item {
+            min-width: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .highlight-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            padding: 3px;
+            background: var(--instagram-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .highlight-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--instagram-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .highlight-title {
+            font-size: 0.9rem;
+            color: var(--instagram-secondary);
+        }
+
+        /* Posts Grid */
+        .posts-section {
+            padding: 50px 0;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .post-card {
+            background-color: var(--instagram-card);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid var(--instagram-light);
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .post-image {
+            height: 300px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .post-card:hover .post-image img {
+            transform: scale(1.05);
+        }
+
+        .post-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .post-card:hover .post-overlay {
+            opacity: 1;
+        }
+
+        .post-stats {
+            color: white;
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+
+        .post-info {
+            padding: 20px;
+        }
+
+        .post-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--instagram-text);
+        }
+
+        .post-description {
+            color: var(--instagram-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: rgba(64, 93, 230, 0.2);
+            color: #405DE6;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Stories */
+        .stories-section {
+            padding: 50px 0;
+            background-color: rgba(38, 38, 38, 0.3);
+            margin-top: 30px;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .story-card {
+            background-color: var(--instagram-card);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .story-card:hover {
+            border-color: #E1306C;
+            transform: translateY(-5px);
+        }
+
+        .story-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: var(--instagram-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .story-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--instagram-text);
+        }
+
+        /* Footer */
+        .instagram-footer {
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 50px 0 30px;
+            margin-top: 50px;
+            border-top: 1px solid var(--instagram-light);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--instagram-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--instagram-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #E1306C;
+        }
+
+        .copyright {
+            color: var(--instagram-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-promo {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(64, 93, 230, 0.1);
+            border-radius: 10px;
+            max-width: 600px;
+        }
+
+        .social-promo h3 {
+            margin-bottom: 15px;
+            color: var(--instagram-text);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .profile-stats {
+                justify-content: center;
+            }
+            
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlights-container {
+                gap: 15px;
+            }
+            
+            .highlight-circle {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="instagram-header">
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div>
+                    <div class="logo-text">Ethical Hacker</div>
+                    <div class="tagline">डेली हैकिंग टिप्स और साइबर सुरक्षा अपडेट</div>
+                </div>
+            </div>
+            <a href="https://insta.openinapp.co/u9aud" target="_blank" class="follow-btn">
+                <i class="fab fa-instagram"></i> फॉलो करें
+            </a>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ethical Hacker Profile">
+                </div>
+                
+                <div class="profile-info">
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1.5K</span>
+                            <span class="stat-label">पोस्ट</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">25K</span>
+                            <span class="stat-label">फॉलोअर्स</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">150</span>
+                            <span class="stat-label">फॉलोविंग</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-bio">
+                        <h1>Ethical Hacker</h1>
+                        <p>साइबर सुरक्षा विशेषज्ञ | एथिकल हैकिंग ट्रेनर | टेक एन्थूसियास्ट</p>
+                        <p>डेली हैकिंग टिप्स, साइबर सुरक्षा अपडेट और टेक्नोलॉजी न्यूज़। हैकर्स से बचने के तरीके और सिस्टम सुरक्षा के गुर।</p>
+                        
+                        <div class="profile-links">
+                            <a href="https://yt.openinapp.co/raehk" target="_blank" class="profile-link">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                            <a href="#" class="profile-link">
+                                <i class="fas fa-globe"></i> Website
+                            </a>
+                            <a href="#" class="profile-link">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights-section">
+        <div class="container">
+            <h2 class="section-title">हाइलाइट्स</h2>
+            <div class="highlights-container">
+                <div class="highlight-item">
+                    <div class="highlight-circle">
+                        <div class="highlight-inner">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="highlight-title">सुरक्षा टिप्स</div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-circle">
+                        <div class="highlight-inner">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="highlight-title">कोडिंग</div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-circle">
+                        <div class="highlight-inner">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                    </div>
+                    <div class="highlight-title">नेटवर्किंग</div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-circle">
+                        <div class="highlight-inner">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                    </div>
+                    <div class="highlight-title">टूल्स</div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-circle">
+                        <div class="highlight-inner">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </div>
+                    <div class="highlight-title">Q&A</div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-circle">
+                        <div class="highlight-inner">
+                            <i class="fas fa-video"></i>
+                        </div>
+                    </div>
+                    <div class="highlight-title">लाइव</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posts Grid -->
+    <section class="posts-section">
+        <div class="container">
+            <h2 class="section-title">रिसेंट पोस्ट</h2>
+            <div class="posts-grid">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Password Security">
+                        <div class="post-overlay">
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 1.2K</span>
+                                <span><i class="fas fa-comment"></i> 45</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-info">
+                        <h3 class="post-title">पासवर्ड हैकिंग से कैसे बचें?</h3>
+                        <p class="post-description">5 आसान तरीके जिनसे आप अपने पासवर्ड को हैकर्स से सुरक्षित रख सकते हैं।</p>
+                        <div class="post-tags">
+                            <span class="tag">#PasswordSecurity</span>
+                            <span class="tag">#CyberSafety</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Phishing Attack">
+                        <div class="post-overlay">
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 2.1K</span>
+                                <span><i class="fas fa-comment"></i> 89</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-info">
+                        <h3 class="post-title">फिशिंग अटैक क्या है?</h3>
+                        <p class="post-description">कैसे पहचानें फिशिंग ईमेल और वेबसाइट। बचाव के तरीके।</p>
+                        <div class="post-tags">
+                            <span class="tag">#Phishing</span>
+                            <span class="tag">#CyberAttack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1590658165737-15a047b8b5e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Encryption">
+                        <div class="post-overlay">
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> 1.8K</span>
+                                <span><i class="fas fa-comment"></i> 67</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-info">
+                        <h3 class="post-title">एन्क्रिप्शन क्यों जरूरी?</h3>
+                        <p class="post-description">डेटा एन्क्रिप्शन के बारे में पूरी जानकारी। कैसे काम करता है?</p>
+                        <div class="post-tags">
+                            <span class="tag">#Encryption</span>
+                            <span class="tag">#DataSecurity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="stories-section">
+        <div class="container">
+            <h2 class="section-title">हैकिंग स्टोरीज</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="story-title">सुरक्षा के नियम</h3>
+                    <p>रोजाना सुरक्षा टिप्स और बेस्ट प्रैक्टिसेज</p>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="story-title">बग बाउंटी</h3>
+                    <p>सिक्योरिटी बग्स और उनके रिवॉर्ड्स</p>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="story-title">ट्रेनिंग</h3>
+                    <p>एथिकल हैकिंग कोर्सेज और सर्टिफिकेशन</p>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="story-title">न्यूज़</h3>
+                    <p>साइबर सुरक्षा की नवीनतम खबरें</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="instagram-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">@ethicalhacker</div>
+            
+            <div class="footer-links">
+                <a href="#">पोस्ट</a>
+                <a href="#">रील्स</a>
+                <a href="#">हाइलाइट्स</a>
+                <a href="#">गाइड</a>
+                <a href="#">टैग्ड</a>
+            </div>
+            
+            <a href="https://insta.openinapp.co/u9aud" target="_blank" class="follow-btn">
+                <i class="fab fa-instagram"></i> इंस्टाग्राम पर फॉलो करें
+            </a>
+            
+            <div class="social-promo">
+                <h3>हमारे अन्य सोशल मीडिया</h3>
+                <p>YouTube चैनल के लिए: <a href="https://yt.openinapp.co/raehk" target="_blank" style="color: #E1306C; text-decoration: underline;">https://yt.openinapp.co/raehk</a></p>
+                <p>इंस्टाग्राम के लिए: <a href="https://insta.openinapp.co/u9aud" target="_blank" style="color: #E1306C; text-decoration: underline;">https://insta.openinapp.co/u9aud</a></p>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Ethical Hacker Instagram. सभी अधिकार सुरक्षित।<br>
+                इस पेज का उद्देश्य केवल शैक्षिक जानकारी प्रदान करना है।
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation for cards
+        const cards = document.querySelectorAll('.post-card, .story-card, .highlight-item');
         
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if(entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+        
+        // Follow button animation
+        const followBtn = document.querySelector('.follow-btn');
+        followBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        followBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+        
+        // Highlight item click
+        const highlights = document.querySelectorAll('.highlight-item');
+        highlights.forEach(highlight => {
+            highlight.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
+                
